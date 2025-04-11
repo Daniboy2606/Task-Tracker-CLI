@@ -40,7 +40,7 @@ def update_task(task_id, description):
         if task['id'] == task_id:
             task['description'] = description
             task['updatedAt'] = datetime.now().isoformat()
-            save_tasks()
+            save_tasks(tasks)  
             return True
     return False
     
@@ -48,12 +48,13 @@ def update_task(task_id, description):
 def delete_task(task_id):
     tasks = load_tasks()
     
-    #Creamos una nueva lista filtrando el task a eliminar
+    # Creamos una nueva lista filtrando el task a eliminar
     updated_tasks = [task for task in tasks if task['id'] != task_id]
     
-    #Verificamos si se eliminó alguna tarea
-    
+    # Verificamos si se eliminó alguna tarea
     if len(tasks) != len(updated_tasks):
+        # Guardamos la lista actualizada
+        save_tasks(updated_tasks)  
         return True
     return False
          
@@ -168,7 +169,7 @@ def main():
                 print(f"{'ID':<5}{'STATUS':<12}{'DESCRIPTION':<50}")
                 print("-" * 67)
                 for task in tasks:
-                    print(f'{task['id']:<5}{task['status']:<12}{task['description']:<50}')
+                    print(f'{task["id"]:<5}{task["status"]:<12}{task["description"]:<50}')
         else:
             parser.print_help()
     except Exception as e:
@@ -177,6 +178,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
