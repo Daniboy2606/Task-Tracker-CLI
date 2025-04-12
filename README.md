@@ -3,13 +3,7 @@ Sample solution in python for the task-tracker challenge from roadmap.sh.
 
 ## How to run
 
-Clone the repository and run the following command:
-
-```bash
-git clone https://github.com/Daniboy2606/Task-Tracker-CLI.git
-cd Task-Tracker-CLI
-```
-```bash
+Clone the repository and start the commands
 
 # To add a task
 python task-cli.py add "Buy groceries"
