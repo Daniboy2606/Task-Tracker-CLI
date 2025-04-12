@@ -4,7 +4,9 @@ Sample solution in python for the task-tracker challenge from roadmap.sh.
 ## How to run
 
 Clone the repository and start the commands
+Clone the repository and run the following command to run the project:
 
+```bash
 # To add a task
 python task-cli.py add "Buy groceries"
 
